@@ -19,6 +19,7 @@ import {
 
 import { ChallengeFinder } from "@/components/challenge-finder";
 import { ContactForm } from "@/components/contact-form";
+import { HomeHero } from "@/components/home-hero";
 import { assetPath } from "@/lib/asset-path";
 import {
   caseStudies,
@@ -33,8 +34,8 @@ import {
 
 const idea = [
   { title: "Inspect", text: "Capture the asset, its condition and the operating context.", icon: Eye },
-  { title: "Digitize", text: "Create point clouds, imagery, maps, models and structured digital records.", icon: ScanLine },
-  { title: "Engineer", text: "Convert captured reality into drawings, CAD, BIM and as-built outputs.", icon: Boxes },
+  { title: "Digitize", text: "Create a digital record with clear images, measurements, maps or 3D models.", icon: ScanLine },
+  { title: "Engineer", text: "Turn site measurements into drawings and 3D models that reflect what is actually installed.", icon: Boxes },
   { title: "Assess", text: "Evaluate condition, compare change, identify priorities and support action.", icon: ClipboardCheck },
 ];
 
@@ -553,7 +554,7 @@ function HomePage({ page }: { page: SitePage }) {
   const why = page.sections.find((section) => section.title === "Why Birdseye");
   return (
     <main>
-      <Hero home page={page} />
+      <HomeHero />
 
       <section className="section section-intro">
         <div className="container split-intro">
@@ -585,16 +586,6 @@ function HomePage({ page }: { page: SitePage }) {
             <p>You do not need to select the technology. Tell us what is creating risk, delay, uncertainty or unnecessary cost.</p>
           </div>
           <ChallengeFinder />
-        </div>
-      </section>
-
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-title-row">
-            <div><p className="eyebrow">Four connected solutions</p><h2>Technology selected around the required outcome.</h2></div>
-            <Link className="text-link" href="/solutions/">Explore all solutions <ArrowRight size={17} /></Link>
-          </div>
-          <CardGrid pages={solutions} type="solution" />
         </div>
       </section>
 

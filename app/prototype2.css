@@ -1,0 +1,61 @@
+/* Prototype 2 opening: real drone footage with four equal service routes. */
+.home-opening { position:relative; isolation:isolate; overflow:hidden; background:#080d12; color:#fff; }
+.home-film { position:absolute; z-index:-2; inset:0; overflow:hidden; }
+.home-film img, .home-film video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:65% center; }
+.home-film::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(5,10,15,.9) 0%,rgba(5,10,15,.76) 39%,rgba(5,10,15,.2) 80%),linear-gradient(0deg,#080d12 0%,rgba(8,13,18,.08) 75%); }
+.home-opening-inner { padding-block:42px 30px; }
+.home-opening-copy { max-width:700px; }
+.home-opening .eyebrow { font-size:.875rem; color:#ff996e; letter-spacing:.11em; }
+.home-opening h1 { margin:12px 0 20px; font-size:clamp(2.5rem,4.4vw,4rem); font-weight:750; line-height:1.06; letter-spacing:-.045em; text-wrap:balance; }
+.home-opening h1 span { color:#fff; }
+.home-opening-intro { max-width:650px; margin:0 0 24px; font-size:1.0625rem; line-height:1.65; color:#e0e5e9; }
+.home-path-heading { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin:30px 0 14px; }
+.home-path-heading h2 { margin:0; font-size:1rem; font-weight:650; }
+.film-toggle { display:inline-flex; align-items:center; justify-content:center; min-height:44px; gap:8px; padding:8px 12px; border:1px solid #87909a; border-radius:3px; background:rgba(8,13,18,.7); color:#fff; cursor:pointer; font-size:.875rem; }
+.film-toggle:hover { background:#25313d; }
+.home-solution-paths { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.home-solution-path { position:relative; isolation:isolate; overflow:hidden; display:flex; min-height:216px; border:1px solid #51606b; border-top:3px solid var(--orange); background:#101b25; transition:border-color .2s ease,transform .2s ease; }
+.home-solution-path>img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; }
+.home-solution-path::before { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(135deg,rgba(6,13,20,.92),rgba(6,13,20,.75)); }
+.home-path-copy { display:flex; flex-direction:column; align-items:flex-start; width:100%; padding:18px; }
+.home-path-number { color:#ffa37d; font-weight:700; font-size:.8125rem; letter-spacing:.06em; }
+.home-path-copy h3 { margin:8px 0 10px; max-width:250px; font-size:1.125rem; line-height:1.25; font-weight:750; }
+.home-path-copy p { margin:0 0 16px; color:#e0e6eb; font-size:.9375rem; line-height:1.45; }
+.home-path-link { display:flex; align-items:center; gap:9px; margin-top:auto; font-size:.875rem; font-weight:750; color:#ffa37d; }
+.home-solution-path:hover { transform:translateY(-3px); border-color:#ffac89; }
+.home-solution-path:focus-visible, .film-toggle:focus-visible, .home-opening .button:focus-visible { outline:3px solid #fff; outline-offset:4px; }
+.home-opening + .section-intro { padding-block:70px; }
+@media (min-width:1100px) and (max-height:850px) {
+  .home-opening-inner { padding-top:28px; }
+  .home-opening h1 { font-size:3.35rem; }
+  .home-opening-intro { margin-bottom:18px; line-height:1.5; }
+  .home-path-heading { margin-top:20px; margin-bottom:10px; }
+  .home-solution-path { min-height:200px; }
+  .home-path-copy { padding:14px 16px; }
+}
+@media (max-width:1000px) {
+  .home-solution-paths { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .home-opening-copy { max-width:670px; }
+  .home-film::after { background:linear-gradient(90deg,rgba(5,10,15,.87),rgba(5,10,15,.35)),linear-gradient(0deg,#080d12 0%,rgba(8,13,18,.2) 80%); }
+  .home-solution-path { min-height:200px; }
+}
+@media (max-width:540px) {
+  .home-opening-inner { padding-top:28px; }
+  .home-opening .eyebrow { font-size:.875rem; letter-spacing:.04em; }
+  .home-opening h1 { font-size:2.5rem; }
+  .home-opening-intro { font-size:1rem; }
+  .home-solution-paths { gap:10px; }
+  .home-path-copy { padding:14px 12px; }
+  .home-path-copy h3 { font-size:1rem; }
+  .home-path-copy p { font-size:.875rem; }
+  .home-path-link { font-size:.875rem; }
+  .home-solution-path { min-height:250px; }
+}
+@media (max-width:350px) {
+  .home-solution-paths { grid-template-columns:1fr; }
+  .home-solution-path { min-height:190px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .home-solution-path { transition:none; }
+  .home-solution-path:hover { transform:none; }
+}
