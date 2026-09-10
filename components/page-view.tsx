@@ -320,7 +320,7 @@ const leadershipProfiles = [
   },
   {
     name: "Partha Dash",
-    role: "CEO & Managing Director, India",
+    role: "Group CEO & Managing Director, India",
     photo: "/visuals/partha-dash.webp",
     bio: [
       "Business leader with 20+ years of cross-functional experience driving transformation, revenue growth and strategic initiatives across manufacturing, supply chain and international business development.",
@@ -331,7 +331,7 @@ const leadershipProfiles = [
   },
   {
     name: "Udaiappan Muthukumar",
-    role: "Head of Operations",
+    role: "Director Operations",
     photo: "/visuals/udaiappan-muthukumar.jpeg",
     bio: [
       "Mechanical engineer with decades of industry experience across oil and gas, mining, cement, steel and hydropower.",

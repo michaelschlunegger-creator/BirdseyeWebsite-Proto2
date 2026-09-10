@@ -328,7 +328,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (min-width: 1081px) {
   .leadership-grid--three { grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .leadership-grid--three .leader-card { grid-template-columns:minmax(0,1fr); }
+  .leadership-grid--three .leader-card { grid-template-columns:minmax(0,1fr); grid-template-rows:auto 1fr; }
   .leadership-grid--three .leader-photo { width:190px; }
 }
 
