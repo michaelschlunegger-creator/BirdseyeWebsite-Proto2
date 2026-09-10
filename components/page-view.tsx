@@ -329,6 +329,17 @@ const leadershipProfiles = [
       "Adept at leading high-performance teams and building sustainable growth strategies in emerging markets.",
     ],
   },
+  {
+    name: "Udaiappan Muthukumar",
+    role: "Head of Operations",
+    photo: "/visuals/udaiappan-muthukumar.jpeg",
+    bio: [
+      "Mechanical engineer with decades of industry experience across oil and gas, mining, cement, steel and hydropower.",
+      "Involved in Birdseye from the beginning, helping build the company’s operational foundations and service capabilities.",
+      "Leads project planning, team coordination and site execution, with a focus on safety, quality and dependable delivery.",
+      "Brings a practical understanding of industrial challenges, helping customers turn inspection and engineering requirements into solutions that reduce downtime, improve efficiency and support reliable operations.",
+    ],
+  },
 ];
 
 function secondaryHref(page: SitePage) {
@@ -480,11 +491,11 @@ function LeadershipProfiles() {
           <div><p className="eyebrow">Leadership</p><h2>Industrial experience. Regional accountability.</h2></div>
           <p>Birdseye leadership combines industrial technology, business transformation and practical execution across the regions we serve.</p>
         </div>
-        <div className="leadership-grid">
+        <div className="leadership-grid leadership-grid--three">
           {leadershipProfiles.map((profile) => (
             <article className="leader-card" key={profile.name}>
               <div className="leader-photo">
-                <img src={assetPath(profile.photo)} alt={`Portrait of ${profile.name}`} loading="lazy" />
+                <img src={assetPath(profile.photo)} alt={`Portrait of ${profile.name}`} loading="lazy" style={profile.name === "Udaiappan Muthukumar" ? { filter: "grayscale(1)" } : undefined} />
               </div>
               <div className="leader-copy">
                 <h3>{profile.name}</h3>
