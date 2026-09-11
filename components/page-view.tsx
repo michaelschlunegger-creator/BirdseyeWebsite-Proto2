@@ -567,6 +567,7 @@ function HomePage({ page }: { page: SitePage }) {
   return (
     <main>
       <HomeHero />
+      <IndoorReferences compact />
 
       <section className="section section-intro">
         <div className="container split-intro">

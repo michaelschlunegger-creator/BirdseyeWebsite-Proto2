@@ -21,3 +21,16 @@
   .track { animation:none; }
   .group[aria-hidden="true"], .toggle { display:none; }
 }
+
+/* Smaller landing-page variant; original logo artwork remains unchanged. */
+.section.compact { padding:24px 0; }
+.compact .heading { flex-direction:row; align-items:center; gap:16px; margin-bottom:12px; }
+.compact .heading h2 { font-size:1rem; line-height:1.4; }
+.compact .toggle { padding:8px 12px; }
+.compact .logo { width:138px; height:72px; }
+.compact .logo img { width:98px; height:48px; }
+.compact .track { animation-duration:75s; }
+.compact .source { margin-top:12px; }
+@media (max-width:480px) {
+  .compact .heading { flex-wrap:wrap; }
+}

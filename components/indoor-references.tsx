@@ -88,15 +88,15 @@ const references = [
   }
 ];
 
-export function IndoorReferences() {
+export function IndoorReferences({ compact = false }: { compact?: boolean }) {
   const [paused, setPaused] = useState(false);
   return (
-    <section className={styles.section} id="indoor-references" aria-labelledby="indoor-references-title">
+    <section className={`${styles.section}${compact ? ` ${styles.compact}` : ""}`} id="indoor-references" aria-labelledby="indoor-references-title">
       <div className="container">
         <div className={styles.heading}>
           <div>
-            <p className="eyebrow">Flyability technology references</p>
-            <h2 id="indoor-references-title">Indoor inspection technology used across industry.</h2>
+            {!compact && <p className="eyebrow">Flyability technology references</p>}
+            <h2 id="indoor-references-title">{compact ? "Flyability technology references" : "Indoor inspection technology used across industry."}</h2>
           </div>
           <button type="button" className={styles.toggle} aria-pressed={paused}
             aria-controls="indoor-reference-track" onClick={() => setPaused(!paused)}>
