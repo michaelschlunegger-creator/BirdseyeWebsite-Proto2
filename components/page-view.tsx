@@ -20,6 +20,7 @@ import {
 import { ChallengeFinder } from "@/components/challenge-finder";
 import { ContactForm } from "@/components/contact-form";
 import { HomeHero } from "@/components/home-hero";
+import { IndoorReferences } from "@/components/indoor-references";
 import { assetPath } from "@/lib/asset-path";
 import {
   caseStudies,
@@ -702,6 +703,7 @@ function GenericPage({ page }: { page: SitePage }) {
   return (
     <main>
       <Hero page={page} />
+      {page.route === "/solutions/indoor-confined-space/" && <IndoorReferences />}
       <StoryVisuals route={page.route} />
       <section className="section section-article">
         <div className="container article-layout">
