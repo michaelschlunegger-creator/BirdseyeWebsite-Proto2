@@ -105,13 +105,13 @@ export function IndoorCapabilityPage({ page }: { page: SitePage }) {
         <span>Explore capabilities</span>
       </div>
     </nav>
-    <section className={styles.hero}>
-      <div className={`container ${styles.heroGrid}`}>
-        <div className={styles.heroCopy}>
+    <section className={`${styles.hero} ${styles.indoorHero}`}>
+      <div className={`container ${styles.heroGrid} ${styles.indoorHeroGrid}`}>
+        <div className={`${styles.heroCopy} ${styles.indoorHeroCopy}`}>
           <p className="eyebrow">Indoor inspection capability</p>
           <h1>{content.label}</h1>
           <p className={styles.heroStatement}>{content.title}</p>
-          <p className={styles.lead}>{page.heroText}</p>
+          <p className={`${styles.lead} ${styles.indoorLead}`}>{page.heroText}</p>
           <Link href="/contact-us/#enquiry" className="button">Discuss Your Requirement <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
         <figure className={`${styles.product} ${content.imageMode === "scene" ? styles.scene : styles.productRender}`}>
