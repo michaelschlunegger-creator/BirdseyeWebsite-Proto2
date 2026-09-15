@@ -23,6 +23,7 @@ import { HomeHero } from "@/components/home-hero";
 import { IndoorReferences } from "@/components/indoor-references";
 import { IndoorPage } from "@/components/indoor-page";
 import { IndoorCapabilityPage, isIndoorCapability } from "@/components/indoor-capability-page";
+import { OutdoorPage, isOutdoorPage } from "@/components/outdoor-page";
 import { assetPath } from "@/lib/asset-path";
 import {
   caseStudies,
@@ -849,6 +850,7 @@ function CtaBand() {
 }
 
 export function PageView({ page }: { page: SitePage }) {
+  if (isOutdoorPage(page.route)) return <OutdoorPage page={page} />;
   if (page.route === "/solutions/indoor-confined-space/") return <IndoorPage />;
   if (isIndoorCapability(page.route)) return <IndoorCapabilityPage page={page} />;
   if (page.category === "home") return <HomePage page={page} />;
