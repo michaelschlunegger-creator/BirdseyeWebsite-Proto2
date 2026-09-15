@@ -145,6 +145,90 @@ type ArticleSectionVisual = {
 };
 
 const articleSectionVisuals: Record<string, Record<string, ArticleSectionVisual>> = {
+  "/solutions/indoor-confined-space/": {
+    "The Customer Challenge": {
+      src: "/visuals/capability-indoor.webp",
+      alt: "Remote inspection inside a tall industrial enclosure",
+      caption: "Hard-to-reach surfaces. Limited access. A short shutdown window. Start with the areas your team needs to see.",
+    },
+    "How Birdseye Helps": {
+      src: "/visuals/capability-slam.webp",
+      alt: "An enclosed corridor captured as a spatial point cloud",
+      caption: "Connect inspection images with 3D context, so a finding can be located and reviewed after the team leaves site.",
+    },
+    "What We Provide": {
+      src: "/visuals/capability-ut.webp",
+      alt: "Illustration of remote ultrasonic inspection at a tank wall",
+      caption: "Visual inspection, spatial capture and targeted thickness measurements: select the method around the question, not the equipment.",
+    },
+    "Typical Assets and Environments": {
+      src: "/visuals/industry-cement.webp",
+      alt: "A cement facility with silos, process structures and enclosed equipment",
+      caption: "From silo cones and flue ducts to tanks and tunnels, each asset needs its own access and capture plan.",
+    },
+    "What You Receive": {
+      src: "/visuals/assessment-structured-evidence.webp",
+      alt: "Conceptual view of imagery, measurements and spatial evidence linked to an industrial asset",
+      caption: "An organised asset record: annotated images, located findings, agreed measurements and a report for technical review.",
+    },
+    "Value for Your Business": {
+      src: "/visuals/assessment-prioritization.webp",
+      alt: "Maintenance specialists reviewing identified areas of an industrial facility",
+      caption: "Use inspection evidence to focus follow-up work, plan access and direct maintenance effort where it is needed.",
+    },
+    "How the Work Is Delivered": {
+      src: "/visuals/insight-planning.webp",
+      alt: "Specialists planning capture requirements and reviewing site information",
+      caption: "Agree the scope. Confirm site readiness. Capture and check coverage. Hand over traceable findings and limitations.",
+    },
+    "Relevant Customer Stories": {
+      src: "/visuals/industry-water.webp",
+      alt: "Water infrastructure illustrating an enclosed-asset inspection environment",
+      caption: "Explore the recorded tank, duct and pipeline projects. Results are specific to each project; imagery is illustrative.",
+    },
+  },
+  "/solutions/outdoor-asset-intelligence/": {
+    "The Customer Challenge": {
+      src: "/visuals/capability-corridor.webp",
+      alt: "A long infrastructure corridor crossing varied terrain",
+      caption: "Long corridors and changing sites make isolated observations difficult to turn into a complete, current picture.",
+    },
+    "How Birdseye Helps": {
+      src: "/visuals/capability-photogrammetry.webp",
+      alt: "Aerial site imagery transitioning into a mapped quarry surface",
+      caption: "Capture the site systematically, then turn overlapping imagery and spatial data into usable maps and models.",
+    },
+    "What We Provide": {
+      src: "/visuals/capability-volumetric.webp",
+      alt: "A stockpile represented by a measured digital surface",
+      caption: "Measure stockpiles, map corridors and track earthworks using a capture method matched to the required output.",
+    },
+    "Typical Assets and Environments": {
+      src: "/visuals/industry-mining.webp",
+      alt: "A large open-pit mine and its access roads",
+      caption: "Mines, quarries, industrial sites and transport networks: capture at the scale the operation needs.",
+    },
+    "What You Receive": {
+      src: "/visuals/capability-progress.webp",
+      alt: "A construction site overlaid with a digital model",
+      caption: "Georeferenced imagery, surface models, point clouds and agreed measurements, with coverage and limitations documented.",
+    },
+    "Value for Your Business": {
+      src: "/visuals/capability-erosion.webp",
+      alt: "Terrain mapping illustrating drainage and erosion review",
+      caption: "See changes in terrain and site conditions earlier, helping your team plan follow-up work and avoid unnecessary repeat visits.",
+    },
+    "How the Work Is Delivered": {
+      src: "/visuals/insight-planning.webp",
+      alt: "A team reviewing mapping coverage and a site plan",
+      caption: "Define boundaries and accuracy. Plan access and permissions. Capture, process and check. Deliver in the agreed coordinate system.",
+    },
+    "Relevant Customer Stories": {
+      src: "/visuals/industry-power.webp",
+      alt: "Power infrastructure illustrating an outdoor inspection setting",
+      caption: "See the stockpile and power-station project stories for practical examples. Project results are not universal guarantees.",
+    },
+  },
   "/solutions/reality-capture-digital-engineering/": {
     "The Customer Challenge": {
       src: "/visuals/engineering-section-challenge.webp",
@@ -515,6 +599,9 @@ function LeadershipProfiles() {
 
 function SectionContent({ page }: { page: SitePage }) {
   const visualsForPage = articleSectionVisuals[page.route] ?? {};
+  const isIndoor = page.route === "/solutions/indoor-confined-space/";
+  const isOutdoor = page.route === "/solutions/outdoor-asset-intelligence/";
+  const isInspection = isIndoor || isOutdoor;
   return (
     <div className="article-sections">
       {page.sections.map((section, sectionIndex) => {
@@ -546,6 +633,31 @@ function SectionContent({ page }: { page: SitePage }) {
                 <ul className="benefit-list">
                   {bullets.map((item, index) => <li key={index}><Check aria-hidden="true" size={17} /><span>{item.text}</span></li>)}
                 </ul>
+              )}
+              {isInspection && section.title === "How the Work Is Delivered" && (
+                <div className="content-note">
+                  {isIndoor
+                    ? "Before mobilisation, we confirm access openings, asset isolation, atmosphere, temperature and visibility with your site team. Drone suitability and each sensor are checked against the conditions. Remote inspection does not remove the need for site safety controls or any required follow-up examination."
+                    : "Before mobilisation, we agree site boundaries, required detail, survey control, permissions and weather constraints. Coverage and positioning checks are matched to the agreed accuracy. Repeat surveys use a consistent reference so changes can be compared meaningfully."}
+                </div>
+              )}
+              {isInspection && section.title === "Relevant Customer Stories" && (
+                <Link className="text-link" href={isIndoor
+                  ? "/casestudies/tank-wall-thickness-assessment-with-birdseye-drones-and-ut-technology/"
+                  : "/casestudies/inspect-your-stockpiles-with-birdseye-drone/"}>
+                  {isIndoor ? "Explore the tank inspection story" : "Explore the stockpile measurement story"} <ArrowRight size={16} />
+                </Link>
+              )}
+              {isInspection && isLast && (
+                <div className="content-note">
+                  <h3>What helps us define your scope</h3>
+                  <p>{isIndoor
+                    ? "Share the asset type, location, access opening, known condition concerns and planned shutdown window. Add drawings or photographs if available, and tell us what decision the inspection must support."
+                    : "Share the location, approximate area or corridor length, required measurements and survey frequency. Tell us whether the output is for planning, inventory, progress review or an existing asset system."}</p>
+                  <Link className="button" href="/contact-us/#enquiry">
+                    Discuss Your Inspection Challenge <ArrowRight size={18} />
+                  </Link>
+                </div>
               )}
             </div>
             {sectionVisual && (
