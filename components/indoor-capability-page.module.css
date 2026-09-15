@@ -2,7 +2,7 @@
 .page h2 { font-size:clamp(1.4rem,2.2vw,1.85rem); font-weight:750; line-height:1.15; letter-spacing:-.035em; margin:0 0 16px; }
 .page p { line-height:1.65; }
 .page a:focus-visible { outline:3px solid #f15a24; outline-offset:5px; }
-.returnBar { background:#f2f5f6; border-bottom:1px solid #dce2e5; }
+.returnBar { position:sticky; top:83px; z-index:40; background:#f2f5f6; border-bottom:1px solid #dce2e5; }
 .returnInner { display:flex; justify-content:space-between; align-items:center; gap:20px; padding-block:12px; }
 .back { display:inline-flex; align-items:center; gap:9px; font-weight:750; font-size:.9rem; color:#b8370e; min-height:30px; }
 .back:hover { text-decoration:underline; text-underline-offset:4px; }
@@ -57,6 +57,7 @@
  .scope ul { gap:7px; }
  .related { grid-template-columns:repeat(2,1fr); }
 }
+@media(max-width:760px) { .returnBar { top:73px; } }
 @media(max-width:700px) {
  .returnInner>span { display:none; }
  .hero { padding:20px 0 26px; }

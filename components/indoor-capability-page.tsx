@@ -91,7 +91,7 @@ export function IndoorCapabilityPage({ page }: { page: SitePage }) {
   return <main className={styles.page}>
     <nav className={styles.returnBar} aria-label="Return to indoor inspection">
       <div className={`container ${styles.returnInner}`}>
-        <Link href={indoorHref} className={styles.back}><ArrowLeft size={18} aria-hidden="true" />Back to Indoor Inspection</Link>
+        <a href={assetPath(indoorHref)} className={styles.back}><ArrowLeft size={18} aria-hidden="true" />Back to Indoor Inspection</a>
         <span>Explore capabilities</span>
       </div>
     </nav>
@@ -128,7 +128,7 @@ export function IndoorCapabilityPage({ page }: { page: SitePage }) {
       <section className={styles.value}><div><p className="eyebrow">05 · The outcome</p><h2>{value.title}</h2></div><SectionItems section={value}/></section>
       <section className={styles.enquiry}>
         <div><p className="eyebrow">06 · Let’s define your scope</p><h2>Discuss your inspection challenge.</h2><SectionItems section={discuss}/></div>
-        <div className={styles.actions}><Link className="button" href="/contact-us/#enquiry">Discuss Your Requirement <ArrowRight size={18} aria-hidden="true" /></Link><Link href={indoorHref} className={styles.back}><ArrowLeft size={18} aria-hidden="true" />Back to Indoor Inspection</Link></div>
+        <div className={styles.actions}><Link className="button" href="/contact-us/#enquiry">Discuss Your Requirement <ArrowRight size={18} aria-hidden="true" /></Link><a href={assetPath(indoorHref)} className={styles.back}><ArrowLeft size={18} aria-hidden="true" />Back to Indoor Inspection</a></div>
       </section>
       <nav className={styles.related} aria-label="Related inspection capabilities">
         {Object.entries(capabilityContent).map(([route, item]) => <Link key={route} href={route} aria-current={route === page.route ? "page" : undefined}>{item.label.replace("Specialist sensing · ", "")}<ArrowRight size={15} aria-hidden="true" /></Link>)}
