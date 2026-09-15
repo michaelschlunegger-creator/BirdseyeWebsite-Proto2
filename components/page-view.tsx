@@ -21,6 +21,7 @@ import { ChallengeFinder } from "@/components/challenge-finder";
 import { ContactForm } from "@/components/contact-form";
 import { HomeHero } from "@/components/home-hero";
 import { IndoorReferences } from "@/components/indoor-references";
+import { IndoorPage } from "@/components/indoor-page";
 import { assetPath } from "@/lib/asset-path";
 import {
   caseStudies,
@@ -847,6 +848,7 @@ function CtaBand() {
 }
 
 export function PageView({ page }: { page: SitePage }) {
+  if (page.route === "/solutions/indoor-confined-space/") return <IndoorPage />;
   if (page.category === "home") return <HomePage page={page} />;
   if (page.category === "contact") return <ContactPage page={page} />;
   if (page.category.endsWith("overview")) return <OverviewPage page={page} />;
