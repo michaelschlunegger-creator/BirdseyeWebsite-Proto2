@@ -10,19 +10,21 @@
 .product { margin:0; }
 .product img { width:100%; height:auto; display:block; border-radius:2px; }
 .product figcaption { font-size:.75rem; color:#9daab2; margin-top:10px; text-align:right; }
-.body { padding-top:38px; padding-bottom:20px; }
+.body { padding-top:38px; padding-bottom:20px; position:relative; isolation:isolate; overflow:hidden; }
+.flightBackdrop { position:absolute; z-index:-1; top:195px; right:-60px; width:980px; max-width:100%; height:auto; opacity:.17; pointer-events:none; user-select:none; }
 .challenge { display:grid; grid-template-columns:1fr 1fr; gap:0; }
 .challenge article { padding:28px 32px; background:#0b1319; color:#fff; }
 .challenge article+article { background:#fff0e9; color:#101820; }
 .challenge p:last-child { margin-bottom:0; }
 .challenge p { font-size:1rem; }
 .emphasis { font-weight:650; }
-.section { padding:36px 0; border-bottom:1px solid #dce2e5; }
+.section { padding:36px 0; border-bottom:1px solid #dce2e5; scroll-margin-top:100px; }
 .heading { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:20px; }
 .heading h2 { margin-bottom:0; }
 .heading>p { max-width:320px; color:#52616a; font-size:.95rem; margin:0; }
 .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.cards article { border-top:2px solid #f15a24; background:#f3f5f6; padding:20px; display:flex; flex-direction:column; }
+.cards article { border-top:3px solid #f15a24; background:rgba(243,245,246,.72); padding:20px; display:flex; flex-direction:column; }
+.cards h3 { font-size:clamp(1.3rem,1.65vw,1.5rem); font-weight:800; letter-spacing:-.025em; line-height:1.18; min-height:2.36em; margin:12px 0 16px; }
 .cards p { font-size:.93rem; color:#46545d; margin:0 0 16px; }
 .cards a { margin-top:auto; font-size:.85rem; }
 .number { color:#ef541b; font-size:.78rem; font-weight:750; letter-spacing:.1em; }
@@ -65,5 +67,6 @@
  .cards article { padding:16px; } .stories { grid-template-columns:1fr; gap:10px; } .stories>a { padding:18px; }
  .deliverables { gap:22px; } .value,.enquiry { padding:24px; } .enquiry>a { white-space:normal; }
  .credit { text-align:left; }
+ .flightBackdrop { top:530px; right:0; width:100%; opacity:.12; }
 }
 @media(max-width:380px) { .cards { grid-template-columns:1fr; } }

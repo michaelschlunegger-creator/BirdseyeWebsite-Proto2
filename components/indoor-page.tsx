@@ -36,13 +36,14 @@ export function IndoorPage() {
     </section>
     <IndoorReferences compact />
     <div className={`container ${styles.body}`}>
+      <img className={styles.flightBackdrop} src={assetPath("/visuals/elios3-action-official.jpg")} alt="" aria-hidden="true" width="1021" height="900" loading="lazy" />
       <section className={styles.challenge}>
         <article><p className="eyebrow">The customer challenge</p><h2>Access takes time.<br />Condition cannot wait.</h2><p>Scaffolding, rope access and confined-space entry can extend preparation and shutdown windows. Maintenance teams still need to know where damage, deposits or deterioration require attention.</p></article>
         <article><p className="eyebrow">How Birdseye helps</p><h2>Bring the evidence<br />back to your team.</h2><p>We plan and operate the inspection around your asset and the decision you need to make. The Elios 3 captures visual and spatial evidence; additional sensing is selected to suit the task.</p><p className={styles.emphasis}>Less access preparation. Clearer findings. Better maintenance planning.</p></article>
       </section>
-      <section className={styles.section}>
+      <section className={styles.section} id="capabilities" aria-label="Indoor inspection capabilities">
         <div className={styles.heading}><div><p className="eyebrow">What we provide</p><h2>The right inspection scope.</h2></div><p>One platform, with the capture method and payload agreed for your project.</p></div>
-        <div className={styles.cards}>{capabilities.map(([n,title,copy,url])=><article key={n}><span className={styles.number}>{n}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={url}>Explore capability <ArrowRight size={16}/></Link></article>)}</div>
+        <div className={styles.cards}>{capabilities.map(([n,title,copy,url])=><article key={n}><span className={styles.number}>{n}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={url} aria-label={`Explore ${title}`}>Explore capability <ArrowRight size={16}/></Link></article>)}</div>
         <div className={styles.assets}><strong>Typical assets</strong><span>Tanks & vessels</span><span>Silos & hoppers</span><span>Ducts & chimneys</span><span>Boilers & kilns</span><span>Tunnels & pipelines</span></div>
       </section>
       <section className={`${styles.section} ${styles.deliverables}`}>
