@@ -5,10 +5,10 @@ import { assetPath } from "@/lib/asset-path";
 import styles from "./indoor-page.module.css";
 
 const capabilities = [
-  ["01", "Visual & thermal inspection", "Review surface condition, deposits and visible defects. Thermal imagery adds temperature context where the inspection conditions allow.", "/visual-thermal-imaging/"],
-  ["02", "LiDAR & 3D mapping", "Light Detection and Ranging (LiDAR) captures spatial context, helping teams locate findings and understand inspection coverage.", "/slam/"],
-  ["03", "Ultrasonic thickness", "Targeted ultrasonic testing (UT) provides wall-thickness readings on suitable surfaces, using the appropriate payload and measurement procedure.", "/ndt-ut-drone-inspection-services/"],
-  ["04", "Specialist sensing", "Radiation or gas sensing can be scoped where the approved payload, operating conditions and project requirements support it.", "/radiation/"],
+  ["01", "Visual & thermal inspection", "Review surface condition, deposits and visible defects. Thermal imagery adds temperature context where the inspection conditions allow.", "/visual-thermal-imaging/", "/visuals/indoor-thermal-cinematic-v2.webp", "Caged inspection drone examining corrosion and a thermal anomaly inside an industrial vessel"],
+  ["02", "LiDAR & 3D mapping", "Light Detection and Ranging (LiDAR) captures spatial context, helping teams locate findings and understand inspection coverage.", "/slam/", "/visuals/indoor-lidar-cinematic-v2.webp", "Indoor inspection drone mapping pipes and vessel geometry as a coloured point cloud"],
+  ["03", "Ultrasonic thickness", "Targeted ultrasonic testing (UT) provides wall-thickness readings on suitable surfaces, using the appropriate payload and measurement procedure.", "/ndt-ut-drone-inspection-services/", "/visuals/elios3-ut-official.png", "Elios 3 ultrasonic testing payload making contact with an asset wall"],
+  ["04", "Specialist sensing", "Radiation or gas sensing can be scoped where the approved payload, operating conditions and project requirements support it.", "/radiation/", "/visuals/elios3-rad-map-official.jpg", "Radiation survey trajectory located within a three-dimensional asset model"],
 ];
 const workflow = [
   ["Define", "Agree the asset, inspection questions, coverage and deliverables."],
@@ -20,18 +20,18 @@ const workflow = [
 export function IndoorPage() {
   return <main className={styles.page}>
     <section className={styles.hero}>
+      <figure className={styles.heroMedia}>
+        <img src={assetPath("/visuals/indoor-hero-cinematic-v2.webp")} alt="Caged indoor inspection drone flying inside a large corroded steel tank" width="1672" height="941" fetchPriority="high" />
+        <figcaption>Indoor inspection concept visual</figcaption>
+      </figure>
       <div className={`container ${styles.heroGrid}`}>
-        <div>
+        <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link> / <Link href="/solutions/">Solutions</Link> / Indoor inspection</nav>
           <p className="eyebrow">Indoor & confined-space inspection</p>
           <h1>See more.<br />Enter less.</h1>
           <p className={styles.lead}>Inspect tanks, silos, ducts and other difficult internal spaces with the Flyability Elios 3. Give your team clear evidence while reducing unnecessary human entry.</p>
           <Link className="button" href="/contact-us/#enquiry">Discuss Your Inspection Challenge <ArrowRight size={18} /></Link>
         </div>
-        <figure className={styles.product}>
-          <img src={assetPath("/visuals/elios3-official.jpg")} alt="Flyability Elios 3 with its protective cage, front camera and lighting, flying inside an enclosed asset" width="1920" height="1061" />
-          <figcaption>Flyability Elios 3 · Official manufacturer imagery</figcaption>
-        </figure>
       </div>
     </section>
     <IndoorReferences compact />
@@ -43,7 +43,10 @@ export function IndoorPage() {
       </section>
       <section className={styles.section} id="capabilities" aria-label="Indoor inspection capabilities">
         <div className={styles.heading}><div><p className="eyebrow">What we provide</p><h2>The right inspection scope.</h2></div><p>One platform, with the capture method and payload agreed for your project.</p></div>
-        <div className={styles.cards}>{capabilities.map(([n,title,copy,url])=><article key={n}><span className={styles.number}>{n}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={url} aria-label={`Explore ${title}`}>Explore capability <ArrowRight size={16}/></Link></article>)}</div>
+        <div className={styles.cards}>{capabilities.map(([n,title,copy,url,image,alt])=><article key={n}>
+          <Link className={styles.cardVisual} href={url} aria-label={`Explore ${title}`}><img src={assetPath(image)} alt={alt} loading="lazy" /></Link>
+          <div className={styles.cardCopy}><span className={styles.number}>{n}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={url} aria-label={`Explore ${title}`}>Explore capability <ArrowRight size={16}/></Link></div>
+        </article>)}</div>
         <div className={styles.assets}><strong>Typical assets</strong><span>Tanks & vessels</span><span>Silos & hoppers</span><span>Ducts & chimneys</span><span>Boilers & kilns</span><span>Tunnels & pipelines</span></div>
       </section>
       <section className={`${styles.section} ${styles.deliverables}`}>
@@ -65,7 +68,7 @@ export function IndoorPage() {
         </div>
       </section>
       <section className={styles.enquiry}><div><p className="eyebrow">Discuss your inspection challenge</p><h2>What do you need to see inside?</h2><p>Tell us the asset, location, access constraints and planned inspection window. We will help define the capture scope and useful deliverables.</p></div><Link className="button" href="/contact-us/#enquiry">Discuss Your Inspection Challenge <ArrowRight size={18}/></Link></section>
-      <p className={styles.credit}>Elios 3 product and reporting imagery: <a href="https://www.flyability.com/elios-3" target="_blank" rel="noreferrer">Flyability</a>.</p>
+      <p className={styles.credit}>Elios 3 product and reporting imagery: <a href="https://www.flyability.com/elios-3" target="_blank" rel="noreferrer">Flyability</a>. Concept visuals are illustrative.</p>
     </div>
   </main>;
 }
